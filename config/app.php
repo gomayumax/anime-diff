@@ -161,6 +161,7 @@ return [
 
         // social login linbary
         Laravel\Socialite\SocialiteServiceProvider::class,
+    //    Illuminate\Html\HtmlServiceProvider::class, 
 
     ],
 

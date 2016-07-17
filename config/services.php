@@ -12,33 +12,33 @@ return [
     | default location for this type of information, allowing packages
     | to have a conventional place to find your various credentials.
     |
-    */
+     */
 
-    'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
-    ],
+'mailgun' => [
+'domain' => env('MAILGUN_DOMAIN'),
+  'secret' => env('MAILGUN_SECRET'),
+  ],
 
-    'ses' => [
-        'key' => env('SES_KEY'),
-        'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
-    ],
+  'ses' => [
+  'key' => env('SES_KEY'),
+    'secret' => env('SES_SECRET'),
+    'region' => 'us-east-1',
+   ],
 
-    'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
-    ],
+   'sparkpost' => [
+   'secret' => env('SPARKPOST_SECRET'),
+   ],
 
-    'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
-    ],
+   'stripe' => [
+   'model' => App\User::class,
+   'key' => env('STRIPE_KEY'),
+   'secret' => env('STRIPE_SECRET'),
+   ],
 
-    'github' => [
-        'client_id' => 'your-github-app-id',
-        'client_secret' => 'your-github-app-secret',
-        'redirect' => 'http://your-callback-url',
-    ],
+   'github' => [
+   'client_id' => getenv('GITHUB_CLIENT_ID'),
+   'client_secret' => getenv('GITHUB_SECRET'),
+   'redirect' => 'http://localhost:8000/github/login',
+   ],
 
 ];
