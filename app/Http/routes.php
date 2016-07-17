@@ -25,6 +25,19 @@ Route::get('/', function()
     }
     return 'ようこそ ' . Auth::user()->username . 'さん!';
 });
+Route::get('/logout', function()
+  {
+    if (!Auth::check()) {
+      // ログイン済でなければリダイレクト
+      return 'こんにちは ゲストさん. ' . link_to('github/authorize', 'Github でログイン.');
+    }
+    Auth::logout();
+      return redirect('/');
+});
+
+
+//Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+//Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('{provider}/authorize', function($provider)
     {
@@ -37,7 +50,7 @@ Route::get('{provider}/login', function($provider)
       // ユーザー情報取得
       $userData = Socialite::with($provider)->user();
       // ユーザー作成
-      $user = User::firstOrCreate([
+      $user = App\User::firstOrCreate([
         'username' => $userData->nickname,
         'email'    => $userData->email,
         'avatar'   => $userData->avatar
