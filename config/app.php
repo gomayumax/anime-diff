@@ -161,6 +161,7 @@ return [
 
         // social login linbary
         Laravel\Socialite\SocialiteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 
@@ -209,6 +210,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Form' => Collective\Html\FormFacade::class,
 
     ],
 
