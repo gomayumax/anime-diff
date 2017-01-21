@@ -45,8 +45,8 @@ class AnimeController extends Controller
      */
     public function store(Request $request)
     {
-        if( $this->anime_service->save($request) ) {
-          return redirect()->route('anime.index')->with('messages', ['アニメ追加しました']);
+        if( $this->anime_service->save($request->name) ) {
+          return redirect()->route('anime.index')->with('messages', ['アニメを追加しました']);
       }
         return redirect()->action('AnimeController@create')->with('errors', ['保存に失敗しました']);
     }
@@ -82,7 +82,7 @@ class AnimeController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if( $this->anime_service->update($request, $id)) {
+      if( $this->anime_service->update($request->name, $id)) {
           return redirect()->route('anime.index')->with('messages', ['変更しました']);
       }
       return redirect()->action('AnimeController@edit', $id)->with('errors', ['保存に失敗しました']);

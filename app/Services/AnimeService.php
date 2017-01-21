@@ -24,16 +24,16 @@ class AnimeService
     return $this->anime->all();
   }
 
-  public function save($request)
+  public function save($name)
   {
-    $this->anime->name = $request->name;
+    $this->anime->name = $name;
     return $this->anime->save();
   }
 
-  public function update($request, $id)
+  public function update($name, $id)
   {
     $anime = $this->anime->find($id);
-    $anime->name = $request->name;
+    $anime->name = $name;
     return $anime->save();
   }
 
