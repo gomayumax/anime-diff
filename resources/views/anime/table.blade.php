@@ -9,6 +9,7 @@
   </thead>
   <tbody>
 @foreach ($animes as $anime)
+<tr>
       <td>{{ $anime->id }}</td>
       <td>{{ $anime->name }}</td>
       <td>
@@ -21,7 +22,7 @@
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </td>
-
+</tr>
 @endforeach
   </tbody>
   </thead>
