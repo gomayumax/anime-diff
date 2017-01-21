@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::auth();
 Route::resource('anime', 'AnimeController');
+Route::resource('watched_anime', 'WatchedAnimeController');
 Route::get('/home', 'HomeController@index');
