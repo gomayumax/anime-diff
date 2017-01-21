@@ -27,4 +27,5 @@ class User extends Authenticatable
     public function watchedAnimes() {
       return $this->hasMany('App\WatchedAnime');
     }
+
 }

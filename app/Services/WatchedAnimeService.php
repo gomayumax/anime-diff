@@ -27,6 +27,13 @@ class WatchedAnimeService
     return collect($user->watchedAnimes->all())->pluck('anime');
   }
 
+  public function add($user, $anime_id)
+  {
+    $this->watched_anime->user_id = $user->id;
+    $this->watched_anime->anime_id = $anime_id;
+    return $this->watched_anime->save();
+  }
+
   public function save($name)
   {
     $this->anime->name = $name;

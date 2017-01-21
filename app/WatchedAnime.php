@@ -13,4 +13,6 @@ class WatchedAnime extends Model
   public function anime() {
     return $this->belongsTo('App\Anime');
   }
+
+
 }

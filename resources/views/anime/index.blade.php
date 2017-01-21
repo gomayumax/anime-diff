@@ -1,9 +1,11 @@
-@extends('common.layout')
+@extends('layouts.app')
 
 @section('title', 'Anime')
 
 @section('content')
-anime {!! link_to_route('anime.create', $title = 'register')  !!}
+<div class="container">
+{!! link_to_route('anime.create', $title = 'register')  !!}
 
 @include('anime.table')
+</div>
 @endsection

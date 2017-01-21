@@ -45,7 +45,8 @@ class WatchedAnimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->watched_anime_service->add(Auth::User(), $request->anime_id);
+      return redirect()->route('watched_anime.index');
     }
 
     /**
