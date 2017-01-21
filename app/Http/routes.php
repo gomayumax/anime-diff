@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::auth();
 Route::resource('anime', 'AnimeController');
+Route::get('/home', 'HomeController@index');
