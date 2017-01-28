@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+Route::resource('anime', 'AnimeController');
+Route::resource('watched_anime', 'WatchedAnimeController');
+Route::get('/home', 'HomeController@index');
