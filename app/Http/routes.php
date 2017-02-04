@@ -18,4 +18,5 @@ Route::get('/', function () {
 Route::auth();
 Route::resource('anime', 'AnimeController');
 Route::resource('watched_anime', 'WatchedAnimeController');
+Route::get('/diff/{diff_user}', 'DiffController@show');
 Route::get('/home', 'HomeController@index');

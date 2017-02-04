@@ -59,4 +59,31 @@ class WatchedAnimeService
     return $anime->delete();
   }
 
+    // 視聴済みアニメリストの取得
+  public function get($user)
+  {
+    return $user->watchedAnimes()->with('anime')->get();
+  }
+
+  // 見ているアニメの差分取得
+  public function diff($watched_anime_main_user, $watched_anime_target_user)
+  {
+    // 自分が見てて相手が見てないリスト
+    $anime_id_diff_list_main = $watched_anime_main_user->pluck('anime_id')->diff($watched_anime_target_user->pluck('anime_id')->toArray());
+
+    // 相手が見てて自分が見てないリスト
+    $anime_id_diff_list_target = $watched_anime_target_user->pluck('anime_id')->diff($watched_anime_main_user->pluck('anime_id')->toArray());
+
+    $diff_list_main = $watched_anime_main_user->filter(function ($item) use ($anime_id_diff_list_main){
+      return $anime_id_diff_list_main->has($item->anime_id);
+    });
+
+    $diff_list_target = $watched_anime_target_user->filter(function ($item) use ($anime_id_diff_list_target){
+      return $anime_id_diff_list_target->has($item->anime_id);
+    });
+
+    return [$diff_list_main, $diff_list_target];
+
+  }
+
 }

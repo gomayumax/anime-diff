@@ -14,5 +14,10 @@ class WatchedAnime extends Model
     return $this->belongsTo('App\Anime');
   }
 
+  public function getNameAttribute()
+  {
+    return $this->anime->name;
+  }
+
 
 }
